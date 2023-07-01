@@ -5,9 +5,11 @@ const { Server } = require("socket.io");
 const express = require("express");
 const fileUpload = require("express-fileupload");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 const app = express();
 
 app.use(helmet())
+app.use(cors())
 
 const httpServer = createServer(app);
 global.io = new Server(httpServer);
